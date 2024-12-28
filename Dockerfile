@@ -18,7 +18,7 @@ RUN set -ex \
     dhcping \
     drill \
     ethtool \
-    file\
+    file \
     fping \
     iftop \
     iperf \
@@ -61,8 +61,11 @@ RUN set -ex \
     websocat \
     swaks \
     perl-crypt-ssleay \
-    perl-net-ssleay
-
+    perl-net-ssleay \
+    postgresql \
+    postgresql-client \
+    redis \
+    mongodb-tools
 
 USER root
 WORKDIR /root
