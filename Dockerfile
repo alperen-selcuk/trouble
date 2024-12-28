@@ -37,6 +37,7 @@ RUN set -ex \
     mtr \
     net-snmp-tools \
     netcat-openbsd \
+    net-tools \
     nftables \
     ngrep \
     nmap \
