@@ -70,7 +70,7 @@ RUN set -ex \
 
 USER root
 WORKDIR /root
-ENV HOSTNAME netshoot
+ENV HOSTNAME trouble
 
 # ZSH Themes
 RUN curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
