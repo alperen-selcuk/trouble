@@ -6,22 +6,8 @@ export ZSH_THEME="half-life"
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
-alias tfd="terraform destroy --auto-approve"
-alias tfa="terraform apply --auto-approve"
-
 
 alias ld="lsd -lahtr"
-
-export PATH=$PATH:/opt/homebrew/bin
-
-
-export KUBE_PS1_BINARY=kubectl
-export KUBE_PS1_SYMBOL_USE_IMG=true
-
-#export PROMPT='$(kube_ps1)'$PROMPT
-
-
-export KUBECONFIG=$HOME/.kube/config
 
 
 # Path to your oh-my-zsh installation.
@@ -34,22 +20,6 @@ export BAT_THEME="Monokai Extended Origin"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="random"
-
-alias hs="history | grep"
-
-alias k="kubecolor"
-alias kd="kubectl describe"
-alias kc="kubectl create"
-
-alias kctx="kubectl ctx"
-alias kns="kubectl ns"
-
-alias dockerb="docker build --platform linux/amd64"
-alias dockerr="docker run --platform linux/amd64"
-alias dockert="docker tag --platform linux/amd64"
-
-
-alias tf="terraform"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
