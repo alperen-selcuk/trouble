@@ -120,8 +120,3 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/usr/local/go/bin
-source <(switcher init zsh)
