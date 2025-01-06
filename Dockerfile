@@ -10,8 +10,6 @@ RUN set -ex \
     apache2-utils \
     bash \
     bind-tools \
-    bird \
-    bridge-utils \
     busybox-extras \
     conntrack-tools \
     curl \
@@ -19,19 +17,9 @@ RUN set -ex \
     drill \
     ethtool \
     file \
-    fping \
-    iftop \
-    iperf \
-    iperf3 \
-    iproute2 \
-    ipset \
-    iptables \
-    iptraf-ng \
     iputils \
-    ipvsadm \
     httpie \
     jq \
-    libc6-compat \
     liboping \
     ltrace \
     mtr \
