@@ -10,8 +10,10 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 alias ld="lsd -lahtr"
 
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Path to your oh-my-zsh installation (installed via apk, read-only).
+export ZSH="/usr/share/oh-my-zsh"
+export ZSH_CACHE_DIR="$HOME/.cache/oh-my-zsh"
+zstyle ':omz:update' mode disabled
 
 export BAT_THEME="Monokai Extended Origin"
 
@@ -81,9 +83,10 @@ export BAT_THEME="Monokai Extended Origin"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl-autocomplete)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #plugins=(kube_ps1)
 

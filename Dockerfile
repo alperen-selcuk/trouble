@@ -1,11 +1,10 @@
-FROM alpine:3.21.0
+FROM alpine:3.24
 
+# Only stable v3.24 repos are used; edge/testing is pinned with the @testing tag
+# and used solely for packages that do not exist in stable (swaks).
 RUN set -ex \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-    && apk update \
-    && apk upgrade \
+    && echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+    && apk upgrade --no-cache \
     && apk add --no-cache \
     apache2-utils \
     bash \
@@ -32,13 +31,12 @@ RUN set -ex \
     nmap-nping \
     nmap-scripts \
     openssl \
-    py3-pip \
-    py3-setuptools \
     scapy \
     socat \
     speedtest-cli \
-    openssh \
+    openssh-client \
     oh-my-zsh \
+    zsh-autosuggestions \
     strace \
     tcpdump \
     tcptraceroute \
@@ -48,21 +46,18 @@ RUN set -ex \
     git \
     zsh \
     websocat \
-    swaks \
-    perl-crypt-ssleay \
+    swaks@testing \
     perl-net-ssleay \
-    postgresql \
+    perl-io-socket-ssl \
     postgresql-client \
-    redis \
-    mongodb-tools
+    valkey-cli \
+    mongodb-tools \
+    && ln -s /usr/bin/valkey-cli /usr/local/bin/redis-cli
 
 USER root
 WORKDIR /root
-ENV HOSTNAME trouble
+ENV HOSTNAME=trouble
 
-# ZSH Themes
-RUN curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
-RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 COPY zshrc .zshrc
 COPY motd motd
 
